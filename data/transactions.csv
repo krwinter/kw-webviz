@@ -1,0 +1,20 @@
+id,transaction_time,vendor_name,quantity,item_name,sku,sales_amount,commission_amount,commission_percentage,is_in_utility_treatment_group,date_id
+7,2015-01-19 16:57:00-07,"Best Buy Co, Inc.",1,Fridge,8610212,49.99,0.5,1,Y,20150119
+8,2015-01-23 16:57:00-08,"Best Buy Co, Inc.",2,Fridge,8610212,49.99,0.5,1,Y,20150123
+9,1/19/2015,"Best Buy Co, Inc.",2,Fridge,8610212,49.99,0.5,1,N,20150131
+10,2/1/2015,Al's Live Bait Co.,1,Bucket-O-Chum,8610213,49.99,0.5,1,Y,20150201
+11,2/1/2015,"Best Buy Co, Inc.",1,Washer,8610215,49.99,0.5,1,Y,201502010
+12,2/12/2015,Al's Live Bait Co.,1,Juicy Night Crawlers,8610214,49.99,0.5,1,N,20150212
+13,2/12/2015,Al's Live Bait Co.,1,Juicy Night Crawlers,8610214,49.99,0.5,1,Y,20150212
+14,2/13/2015,Al's Live Bait Co.,1,Juicy Night Crawlers,8610214,49.99,0.5,1,Y,20150213
+15,2/13/2015,"Best Buy Co, Inc.",1,Washer,8610215,49.99,0.5,1,N,20150213
+16,2/14/2015,"Best Buy Co, Inc.",1,Washer,8610215,49.99,0.5,1,Y,20150214
+17,2/14/2015,"Best Buy Co, Inc.",1,Fridge,8610212,100,0.5,1,N,20150214
+18,2/14/2015,"Best Buy Co, Inc.",1,Fridge,8610212,100,0.5,1,Y,20150214
+19,2/25/2015,Al's Live Bait Co.,2,Juicy Night Crawlers,8610214,49.99,0.5,1,Y,20150225
+20,2/27/2015,Al's Live Bait Co.,1,Bucket-O-Chum,8610213,49.99,0.5,1,N,20150227
+21,2/28/2015,Al's Live Bait Co.,1,Bucket-O-Chum,8610213,49.99,0.5,1,Y,20150228
+22,3/19/2015,"Best Buy Co, Inc.",3,Fridge,8610212,49.99,0.5,1,N,20150319
+23,3/23/2015,Al's Live Bait Co.,1,Bucket-O-Chum,8610213,49.99,0.5,1,Y,20150323
+24,3/25/2015,"Best Buy Co, Inc.",1,Washer,8610215,49.99,0.5,1,N,20150325
+25,4/11/2015,"Best Buy Co, Inc.",1,Washer,8610215,49.99,0.5,1,Y,20150411

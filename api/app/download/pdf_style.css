@@ -1,0 +1,25 @@
+def get_pdf_style_source():
+    src = """
+    <style>
+        @page {
+                size: letter landscape;
+                margin: 2cm;
+            }
+    </style>
+    """
+    return src
+
+def get_page_style_source():
+    src = """
+        #transactions-table-totals-holder {
+            margin-top: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: #000000;
+
+        }
+    """
+    return src

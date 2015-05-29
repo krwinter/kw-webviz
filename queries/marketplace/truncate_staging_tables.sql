@@ -1,0 +1,17 @@
+﻿TRUNCATE mp_staging.mps_mp_basket_lines;
+TRUNCATE mp_staging.mps_mp_engagement_events;
+TRUNCATE mp_staging.mps_mp_instant_rebate_applications;
+TRUNCATE mp_staging.mps_mp_instant_rebate_products;
+TRUNCATE mp_staging.mps_mp_instant_rebates;
+TRUNCATE mp_staging.mps_mp_order_lines;
+TRUNCATE mp_staging.mps_mp_prices;
+TRUNCATE mp_staging.mps_mp_product_prices;
+TRUNCATE mp_staging.mps_mp_products;
+TRUNCATE mp_staging.mps_mp_rebate_transactions;
+TRUNCATE mp_staging.mps_mp_referrals;
+TRUNCATE mp_staging.mps_mp_sales_records;
+TRUNCATE mp_staging.mps_mp_transactions;
+TRUNCATE mp_staging.mps_mp_users;
+TRUNCATE mp_staging.mps_mp_voucher_applications;
+TRUNCATE mp_staging.mps_mp_vouchers;
+TRUNCATE mp_staging.mps_user_mp_users;

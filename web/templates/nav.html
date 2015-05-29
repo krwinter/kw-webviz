@@ -1,0 +1,103 @@
+<div>
+<div class="row" id="main-header">
+    
+    <div class="col-md-3 nav-button-group">
+
+        <!-- == START == Navigation button / dropdown -->
+        <div class="btn-group btn-group-s">
+            <button type="button" class="nav-button dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-bars fa-2x"></i>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="navMenu">
+                <a href="#"><li id="weeklySummary">Weekly Summary</li></a>
+                <li id="engagementNav">Engagement Actions</li>
+                <ul class="engagementEvents">
+                    <a href="#"><li id="enrollments">Enrollments (SDG&amp;E)</li></a>
+                    <a href="#"><li id="activations">Activations</li></a>
+                    <a href="#"><li id="logins">Logins</li></a>
+                    <a href="#"><li id="tipsCompleted">Tips</li></a>
+                    <a href="#"><li id="rewardsRedeemed">Rewards</li></a>
+                    <a href="#"><li id="emailActivity">Email Activity</li></a>
+                </ul>
+                <li id="marketplaceNav">Marketplace</li>
+                <ul class="marketplaceNav">
+                    <a href="#"><li id="marketplaceTransactions">Marketplace Transactions (WIP)</li></a>
+                    <a href="#"><li id="marketplaceRebates">Marketplace Rebates (WIP)</li></a>
+                </ul>
+            </ul>
+        </div>
+        <!-- == END == Navigation button / dropdown -->
+
+        <!-- == START == Download button -->
+        <div class="btn-group btn-group-s">
+            <button type="button" class="nav-button dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-download fa-2x"></i>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="downloadOptions">
+                <a href="#"><li id="downloadCsv">Download CSV</li></a>
+                <li class="divider"></li>
+                <a href="#"><li id="downloadDataViz">Generate PDF</li></a>
+            </ul>
+        </div>
+        <!-- == END == Download button -->
+
+        <!-- == START == Info button -->
+        <div class="btn-group btn-group-s">
+            <!--<button type="button" class="btn btn-default" data-toggle="modal" data-target="#infoModal">-->
+            <button type="button" class="nav-button" id="aboutButton">
+                <i class="fa fa-info fa-2x"></i>
+            </button>
+        </div>
+        <!-- == END == Info button -->
+
+
+    </div>
+    <div class="col-md-6 header-title">
+        <span class="se-button">
+            <a data-toggle="collapse" href="#toolRow" aria-expanded="false" aria-controls="toolRow">
+                <!--<img src="../images/plug_icon.png"/>-->
+            </a>
+        </span>
+        <span class="page-title">BI</span>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>
+
+
+
+<div class="row collapse in tools" id="toolRow" aria-expanded="false">
+    <div id="nav">
+
+<!--- FILTERS go here -->
+
+        <div id="navLine" class="row">
+            <div class="col-md-1 filter-label">
+                FILTERS:
+            </div>
+
+            <div class="col-md-11">
+
+                <form class="form-inline">
+                    <div class="form-group filter" id="utilityFilter">
+                        <label id="utilityFilterLabel">Utility</label>
+                        <select class="form-control" id="utilitySelect">
+                          <option value="1">West</option>
+                          <option value="2">East</option>
+                        </select>
+                    </div>
+                    <div class="form-group filter" id="dateFilter">
+                        <label>Date Range:</label>
+                        <input class="datepicker form-control input-sm date-filter-input" data-date-format="mm/dd/yyyy" id="startDate" value="01/01/2015">
+                        to
+                        <input class="datepicker form-control input-sm date-filter-input" data-date-format="mm/dd/yyyy" id="endDate" value="03/31/2015">
+                    </div>
+                </form>
+            </div>   
+        </div>
+
+<!-- nav went there -->
+    </div>
+</div>
+</div>

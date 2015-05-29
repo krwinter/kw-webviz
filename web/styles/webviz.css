@@ -1,0 +1,165 @@
+html, body {
+    height: 100%;
+    margin: 0px;
+}
+
+
+#main-header {
+    background-color: #efefef;
+    border-bottom: 1px solid #cdcdcd;
+    padding: 3px;
+
+}
+
+.header-title {
+    text-align: center;
+
+}
+
+#main-data {
+    background-color: #efefef;
+    border: 1px solid #000000
+}
+
+#utilitySelect {
+    height: 22px;
+    width: 80px;
+}
+
+#utilityFilterLabel {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.page-title {
+    color: #030303;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.dropdown-menu {
+  min-width: 300px;
+}
+
+.input-sm {
+    height: 25px;
+}
+
+.dropdown-menu {
+    min-width: 300px;
+}
+
+#parentmost-container {
+    height: 100%;
+}
+
+.nv-valueWrap {
+    opacity:0;
+}
+
+.se-button {
+    padding-right: 5px;
+    vertical-align: text-bottom;
+}
+
+.spark svg {
+    height: 50px;
+    width: 100px;
+}
+
+#chart svg {
+    height: 600px;
+    width: 100%;
+}
+
+#rates-chart svg {
+    height: 350px;
+    width: 100%;
+}
+
+#totals-chart svg {
+    height: 350px;
+    width: 100%;
+}
+
+#toolRow {
+    background-color: #74c043;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.utility-name {
+    color: #666666;
+    font-weight: bold;
+    font-size: large;
+}
+
+.utility-tile {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.column-label {
+    font-weight: bold;
+    color: #333333;
+}
+.measure-label {
+    font-weight: bold;
+    color: #666666;
+}
+
+.total p {
+    color: #666666;
+    font-weight: bold;
+}
+
+.item-table,
+.summary-table {
+    margin: 20px;
+    border: 1px solid #27B200
+}
+
+#startDate
+#endDate {
+    width: 60px;
+}
+
+.nav-button {
+    border-width: 0px;
+    background: transparent;
+}
+
+.filter-label {
+    font-weight: bold;
+    font-size: larger;
+}
+
+#navLine {
+    padding: 5px;
+}
+
+.slack-link {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    padding: 25px;
+}
+/* this is currently only sql readout */
+textarea {
+    outline: none;
+    background-color: #dddddd;
+}
+
+.nv-axis .tick line {
+    opacity: 0.1;
+}
+
+.report-params {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    padding: 5px;
+}

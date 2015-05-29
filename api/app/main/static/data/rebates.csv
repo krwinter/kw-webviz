@@ -1,0 +1,16 @@
+id,transaction_time,quantity,rebate_name,item_name,make,model_number,upc_code,purchase_price,rebate_value,account_number,account_name,billing_address,shipping_address,date_id
+2,2/14/2015,1,Nest Rebate,Nest Thermostat,NESTY 2000,NST2000,fb990dd,249.99,49.99,123456789,Johnny Johnson,123 Fake St. Springfield USA 00001,123 Fake St. Springfield USA 00001,20150214
+3,2/14/2015,1,Nest Rebate,Nest Thermostat,NESTY 2001,NST2001,fb990dd,249.99,49.99,123456789,Johnny Johnson,124 Fake St. Springfield USA 00001,124 Fake St. Springfield USA 00001,20150214
+4,2/14/2015,1,Fridge Rebate,GE Fridge,GE,GE8-RD123,333fb990dd,2379.99,199.99,999666777,Sally Sallyson,125 Fake St. Springfield USA 00001,125 Fake St. Springfield USA 00001,20150214
+5,2/14/2015,1,Nest Rebate,Nest Thermostat,NESTY 2003,NST2003,fb990dd,249.99,49.99,123456789,Johnny Johnson,126 Fake St. Springfield USA 00001,126 Fake St. Springfield USA 00001,20150214
+6,2/13/2015,1,Fridge Rebate,GE Fridge,GE,GE8-RD123,333fb990dd,2379.99,199.99,999666777,Sally Sallyson,127 Fake St. Springfield USA 00001,127 Fake St. Springfield USA 00001,20150213
+7,2/13/2015,1,Nest Rebate,Nest Thermostat,NESTY 2005,NST2005,fb990dd,249.99,49.99,123456789,Johnny Johnson,128 Fake St. Springfield USA 00001,128 Fake St. Springfield USA 00001,20150213
+8,2/13/2015,1,Fridge Rebate,GE Fridge,GE,GE8-RD123,333fb990dd,2379.99,199.99,999666777,Sally Sallyson,129 Fake St. Springfield USA 00001,129 Fake St. Springfield USA 00001,20150212
+9,2/12/2015,1,Nest Rebate,Nest Thermostat,NESTY 2007,NST2007,fb990dd,249.99,49.99,123456789,Johnny Johnson,130 Fake St. Springfield USA 00001,130 Fake St. Springfield USA 00001,20150212
+10,2/12/2015,1,Fridge Rebate,GE Fridge,GE,GE8-RD123,333fb990dd,2379.99,199.99,999666777,Sally Sallyson,131 Fake St. Springfield USA 00001,131 Fake St. Springfield USA 00001,20150212
+11,2/12/2015,1,Fridge Rebate,GE Fridge,GE,GE8-RD123,333fb990dd,2379.99,199.99,999666777,Sally Sallyson,132 Fake St. Springfield USA 00001,132 Fake St. Springfield USA 00001,20150212
+12,2/12/2015,1,Nest Rebate,Nest Thermostat,NESTY 2010,NST2010,fb990dd,249.99,49.99,123456789,Johnny Johnson,133 Fake St. Springfield USA 00001,133 Fake St. Springfield USA 00001,20150212
+13,2/12/2015,1,Fridge Rebate,GE Fridge,GE,GE8-RD123,333fb990dd,2379.99,199.99,999666777,Sally Sallyson,134 Fake St. Springfield USA 00001,134 Fake St. Springfield USA 00001,20150212
+14,2/10/2015,1,Fridge Rebate,GE Fridge,GE,GE8-RD123,333fb990dd,2379.99,199.99,999666777,Sally Sallyson,135 Fake St. Springfield USA 00001,135 Fake St. Springfield USA 00001,20150210
+15,2/10/2015,1,Nest Rebate,Nest Thermostat,NESTY 2013,NST2013,fb990dd,249.99,49.99,123456789,Johnny Johnson,136 Fake St. Springfield USA 00001,136 Fake St. Springfield USA 00001,20150210
+16,2/10/2015,1,Nest Rebate,Nest Thermostat,NESTY 2014,NST2014,fb990dd,249.99,49.99,123456789,Johnny Johnson,137 Fake St. Springfield USA 00001,137 Fake St. Springfield USA 00001,20150210

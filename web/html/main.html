@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="../styles/nv.d3.css" rel="stylesheet" type="text/css">
+<link href="../styles/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../styles/datepicker3.css" rel="stylesheet" type="text/css">
+<link href="../styles/webviz.css" rel="stylesheet" type="text/css">
+<link href="../fonts/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<style>
+
+</style>
+<body>
+
+<script src="../lib/require.js"></script>
+<script>
+require(['../scripts/config/config'], function() {
+    require(['app'], function(app) {
+        var webvizApp = new app();
+        var startupOptions = {};
+        webvizApp.start(startupOptions);
+    });
+});
+</script>
+<div id="main"></div>
+</body>
+</html>
