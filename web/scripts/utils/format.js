@@ -33,7 +33,7 @@ define([],
                 month = dateString.substr(4,2);
                 day = dateString.substr(6,2);
 
-                return new Date(month + "/" + day + "/" + year).getTime();
+                return Math.floor(new Date(month + "/" + day + "/" + year).getTime() / 1000);
             },
 
             dateIdFromSlashDate: function(dateString) {

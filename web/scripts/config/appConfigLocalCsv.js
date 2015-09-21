@@ -4,19 +4,7 @@ define(function() {
 
         baseUrl: "http://localhost:8000",
 
-        emailApiPath: "/../data/email_all_utilities.csv",
-
-        activationsApiPath: "/../data/events_all_days_all_utilities.csv",
-
-        eventsApiPath: "/../data/events_all_days_all_utilities.csv",
-
-        eventTotalsApiPath: "/../data/events_last_week_total_all_utilities.csv",
-
-        transactionsApiPath: "/../data/transactions.csv",
-
-        rebatesApiPath: "/../data/rebates.csv",
-
-        allEventsApiPath: "/../data/events_all_days_all_utilities.csv",
+        brewTempApiPath: "/../data/brewtemp.csv",
 
         downloadGenerateWkApiPath: '/download/wk',
 
@@ -25,17 +13,7 @@ define(function() {
         downloadGeneratePjsApiPath: '/download/pjs',
 
         viewsEnabled: [
-            'weeklySummary',
-            'engagementNav', // list header
-            'siteActivity',
-            'engagementFunnel',
-            'activations',
-            'logins',
-            'tipsCompleted',
-            'emailActivity',
-            'marketplaceNav', //list header
-            'marketplaceTransactions',
-            'marketplaceRebates'
+            'brewTemp'
         ],
 
         qsFilters: ['startDate','endDate','utility','engagementEvent']

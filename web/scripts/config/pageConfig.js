@@ -208,6 +208,27 @@ define([
 
         },
 
+        brewTemp: {
+
+            pageTitle: 'Brew Temp',
+
+            pageController: "BrewTempController",
+
+            options: { },
+
+            filterControls: ['date'],
+
+            aboutContent: "Enrollment and unenrollment events are typically triggered by a utility action, usually the sending of \
+            an file. These are recorded as they occur and are tallied by month. ",
+
+            sql: enrollmentsSql,
+
+            repoUrl: "https://github.com/simpleenergy/data-democracy/blob/master/queries/enrollment/sdge_by_date.md",
+
+            extra: 'Real Slack integration coming soon...'
+
+        },
+
         /*****************
         *   Marketplace  *
         *****************/

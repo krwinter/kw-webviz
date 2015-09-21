@@ -9,6 +9,7 @@ define([
     'controllers/enrollmentsController',
     'controllers/transactionsController',
     'controllers/rebatesController',
+    'controllers/brewTempController',
 
     'views/modalView',
     'views/alertModalView',
@@ -32,6 +33,7 @@ define([
             EnrollmentsController,
             TransactionsController,
             RebatesController,
+            BrewTempController,
 
             ModalView,
             AlertView,
@@ -131,7 +133,7 @@ define([
 
                 // triggers new page controller - same as if triggered by nav click
                 if (currentRoute = '' || !currentRoute) {
-                    this.showPage('weeklySummary');
+                    this.showPage('brewTemp');
                 }
                 //this.showPage('marketplaceTransactions');
 
