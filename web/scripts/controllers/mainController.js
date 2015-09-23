@@ -2,15 +2,7 @@ define([
     'views/appLayoutView',
     'controllers/navController',
     'controllers/downloadController',
-    'controllers/fourUpController',
-    'controllers/engagementEventsController',
-    'controllers/allEventsController',
-    'controllers/emailController',
-    'controllers/enrollmentsController',
-    'controllers/transactionsController',
-    'controllers/rebatesController',
     'controllers/brewTempController',
-
     'views/modalView',
     'views/alertModalView',
     'models/aboutModel',
@@ -25,14 +17,7 @@ define([
         function(
             AppLayoutView,
             NavController,
-            DownloadController,
-            FourUpController,
-            EngagementEventsController,
-            AllEventsController,
-            EmailController,
-            EnrollmentsController,
-            TransactionsController,
-            RebatesController,
+            DownloadController, 
             BrewTempController,
 
             ModalView,
@@ -124,6 +109,8 @@ define([
 
                 // creates main nav controller - no page set up yet, if no perms fallback to shell page
                 this.navController = new NavController();
+
+                // do we need this?
                 this.downloadController = new DownloadController( { mainController: this } );
 
                 this.filters = new Filters();
@@ -133,7 +120,8 @@ define([
 
                 // triggers new page controller - same as if triggered by nav click
                 if (currentRoute = '' || !currentRoute) {
-                    this.showPage('brewTemp');
+                    events.dispatch('navToPage', 'brewTemp');
+                    //this.showPage('brewTemp');
                 }
                 //this.showPage('marketplaceTransactions');
 
@@ -159,7 +147,11 @@ define([
             },
 
 
+
+
             /*
+                ========****!!!! THIS ONE is the main function that starts all page transitions !!!===******
+
                 pageName is the key to page model in pageConfig
                 pageName is also CURRENTLY id of nav menu item clicked
             */
@@ -167,6 +159,7 @@ define([
                 
                 options = {};
 
+                // ====== check for valid config for this page ===========
                 // only show page if it's exists as a valid config, and is enabled for this particular config instance
                 if (!_.has(pageConfig, pageName) || !_.contains(appConfig.viewsEnabled, pageName)) {
                     console.log('PAGE NOT FOUND');
@@ -181,10 +174,12 @@ define([
 
                 }
 
+                // ==== instantiate new controller for this page
                 // page has been changed, set current on this controller
                 this.currentPageName = pageName;
                 this.currentPageModel = pageConfig[pageName];
 
+                // of course destroy the old instance
                 if (this.currentPageController) {
                     this.currentPageController.destroy();
                 }
@@ -195,6 +190,7 @@ define([
                 // will serve as main key from config - defines all
                 options['pageName'] = pageName;
 
+                // ---- THESE FILTERS are a singleton instance passed around - stored state
                 // pass in this persisted singleton instance - state stored
                 options['filters'] = this.filters;
 

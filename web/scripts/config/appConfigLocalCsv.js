@@ -16,7 +16,7 @@ define(function() {
             'brewTemp'
         ],
 
-        qsFilters: ['startDate','endDate','utility','engagementEvent']
+        qsFilters: ['startDate','endDate']
     };
 
     return config;

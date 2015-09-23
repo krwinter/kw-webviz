@@ -33,6 +33,8 @@ define([
             this.model = options.model;
             this.setupListeners();
 
+            this.setDateFilters();
+
             //this.updateFilters();
         },
 
@@ -45,6 +47,11 @@ define([
             this.pageModel = pageModel;
             this.updateFilterVisibility();
             this.updateView();
+        },
+
+        setDateFilters: function() {
+            
+
         },
 
 

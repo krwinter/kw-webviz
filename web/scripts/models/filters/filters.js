@@ -20,12 +20,24 @@ define([
 
             app: null,
 
+            filterSet: {
+
+                // key values of current filters and their settings
+                // date: {
+                    //max: xxxxxx,
+                    //min: xxxxx
+                //},
+                //etc
+
+            },
+
             initialize: function() {
                 console.log('****** init filters ******');
-                events.listen('engagementEventFilterChange', this.engagementEvent.update, this.engagementEvent);
-                events.listen('utilityFilterChange', this.utility.update, this.utility);
                 events.listen('dateFilterChange', this.date.update, this.date);
                 events.listen('dateFilterChange', this.timestamp.update, this.timestamp);
+
+                // in  case we want to do amythign on page change
+                events.listen("navToPage", this.onNewPage, this);
 
                 //events.listen('appStart', this.appStart, this);
                 this.setFiltersFromQs();
@@ -35,6 +47,11 @@ define([
             appStart: function(app) {
                 this.app = app;
                 this.setFiltersFromQs();
+            },
+
+            onNewPage: function() {
+                // set filters to defaults, for one
+                this.timestamp.update([Date.now() - 10000000, Date.now()]);
             },
 
             setFiltersFromQs: function() {
@@ -65,40 +82,6 @@ define([
 
                         this[filter].set(qsObj[key], filterParam);
                     }
-
-
-
-                }
-
-            },
-
-            utility: {
-
-                getQs: function() {
-                    return 'utility=' + this.filterValue;
-                },
-
-                set: function(value) {
-                    this.filterValue = value;
-                },
-
-                update: function(value) {
-                    this.set(value);
-                    events.dispatch('filtersUpdated');
-                },
-
-                filterKey: 'utility_id',
-
-                filterValue: "1",  // all data in csv is a string, as well as ui filter select
-
-                test: function(obj) {
-
-                    if (obj[this.filterKey] == this.filterValue) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-
                 }
             },
 
@@ -216,37 +199,8 @@ define([
                         return false;
                     }
                 }
-            },
-
-            engagementEvent: {
-
-                getQs: function() {
-                    return 'engagementEvent=' + this.filterValue;
-                },
-
-                set: function(value){
-                    this.filterValue = value;
-                },
-
-                update: function(value) {
-                    this.set(value);
-                    events.dispatch('filtersUpdated');
-                },
-
-                filterKey: 'event_type',
-
-                filterValue: "Activated",  // all data in csv is a string, as well as ui filter select
-
-                test: function(obj) {
-
-                    if (obj[this.filterKey] == this.filterValue) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-
-                }
             }
+
         });
 
         return filters;

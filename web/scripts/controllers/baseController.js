@@ -1,14 +1,10 @@
 define([
     'marionette',
-    'models/allEventsModel',
-    'utils/events',
-    'views/allEventsView'
+    'utils/events'
     ],
         function(
         Marionette,
-        Model,
-        events,
-        View
+        events
         ) {
 
 
