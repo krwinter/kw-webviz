@@ -39,7 +39,7 @@ define([
 
         },
 
-    buildGraph: function() {
+        buildGraph: function() {
 
             $('#chart svg').empty();
 

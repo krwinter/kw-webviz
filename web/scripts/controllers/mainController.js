@@ -113,6 +113,7 @@ define([
                 // do we need this?
                 this.downloadController = new DownloadController( { mainController: this } );
 
+                // TODO - make this a singleton instance
                 this.filters = new Filters();
 
                 var currentRoute = Backbone.history.getHash();
@@ -184,25 +185,45 @@ define([
                     this.currentPageController.destroy();
                 }
 
-                // string to class - can we use something besides eval?
-                var controller = eval(pageConfig[pageName].pageController);
 
+                // ======= Get new page controller set up ==============
+                        // string to class - can we use something besides eval?
+                var newController = this.getNewControllerClass(this.currentPageName);
+                //pageConfig[pageName].pageController);
+                //var newController = eval(pageConfig[pageName].pageController);
+
+
+                // ====== SET UP OPTIONS TO BE PASSED INTO NEW CONTROLLER ====
                 // will serve as main key from config - defines all
-                options['pageName'] = pageName;
+                options['pageName'] = this.currentPageName;
 
                 // ---- THESE FILTERS are a singleton instance passed around - stored state
                 // pass in this persisted singleton instance - state stored
                 options['filters'] = this.filters;
 
-                for (var key in pageConfig[pageName].options) {
-                    options[key] = pageConfig[pageName].options[key];
+                for (var key in pageConfig[this.currentPageName].options) {
+                    options[key] = pageConfig[this.currentPageName].options[key];
                 }
 
 
-                this.currentPageController = new controller(options);
+                this.currentPageController = new newController(options);
 
+                // update navigation with new page info
                 // TODO - make event
-                this.navController.viewInstance.update(pageConfig[pageName], options);
+                this.navController.viewInstance.update(pageConfig[this.currentPageName], options);
+
+            },
+
+            getNewControllerClass: function() {
+                var newControllerName;
+                if (pageConfig[this.currentPageName].pageController) {
+                    newControllerName = eval(pageConfig[this.currentPageName].pageController);
+                    // TODO: dynamic require
+                } else {
+                    newControllerName = 'BaseController';
+                }
+
+                return eval(newControllerName);
 
             },
 

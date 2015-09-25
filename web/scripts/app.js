@@ -37,7 +37,7 @@ define([
             mainControllerInstance: null,
 
             initialize: function() {
-                console.log('app.init - we init app');
+                console.log('**-BLAST OFF--*');
             },
 
 

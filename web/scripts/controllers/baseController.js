@@ -1,10 +1,13 @@
 define([
     'marionette',
-    'utils/events'
+    'utils/events',
+    'config/pageConfig'
+
     ],
         function(
         Marionette,
-        events
+        events,
+        pageConfig
         ) {
 
 
@@ -39,18 +42,29 @@ define([
                 this.pageName = options.pageName;
 
                 this.createModel(options);
-                this.createView(options);
                 // load data here after views set up?
             },
 
+            // ============= MODEL SETUP =============
+
             createModel: function(options) {
-                this.modelInstance = new this.modelClass(options);
-                // useful to listen here?
-                if (this.modelInstance.dataLoadEvent) {
-                    events.listen(this.modelInstance.dataLoadEvent, this.dataLoaded, this)
-                }
-                // load data from main controller - after view is there - to prevent race condition
-                //this.modelInstance.loadData();
+
+                this.modelClass = this.getNewModelClass();
+                
+                require([this.modelClass], 
+                    function(modelClass) {
+
+                        console.log('hi');
+                        this.modelInstance = new modelClass(options);
+                
+                        options.model = this.modelInstance;
+                        this.createView(options);
+                        // useful to listen here?
+                        // if (this.modelInstance.dataLoadEvent) {
+                        //     events.listen(this.modelInstance.dataLoadEvent, this.dataLoaded, this)
+                        // }
+                    }.bind(this)
+                );
             },
 
             dataLoaded: function() {
@@ -62,15 +76,68 @@ define([
 
             },
 
+            // ============= VIEW SETUP ===============
+
             createView: function(options) {
-                options.model = this.modelInstance;
-                this.viewInstance = new this.viewClass(options);
-                events.dispatch('viewReady', this.viewInstance);
+                
+                //options.model = this.modelInstance;
+                //this.viewInstance = new this.viewClass(options);
+
+
+
+                this.viewClass = this.getNewViewClass();
+                
+                require([this.viewClass], 
+                    function(viewClass) {
+
+                        console.log('hi');
+                        this.viewInstance = new viewClass(options);
+                        // useful to listen here?
+                        // if (this.modelInstance.dataLoadEvent) {
+                        //     events.listen(this.modelInstance.dataLoadEvent, this.dataLoaded, this)
+                        // }
+                        events.dispatch('viewReady', this.viewInstance);
+
+                    }.bind(this)
+                );
+
             },
 
             destroyView: function() {
                 // DESTROY!
             },
+
+            // ============= UTILS =================
+
+            getNewModelClass: function() {
+                var newModelName;
+                if (pageConfig[this.pageName].pageModel) {
+                    //newModelName = eval(pageConfig[this.pageName].pageModel);
+                    newModelName = pageConfig[this.pageName].pageModel;
+                    // TODO: dynamic require
+                } else {
+                    newModelName = 'BaseModel';
+                }
+
+                return newModelName;
+
+            },
+
+            getNewViewClass: function() {
+                var newViewName;
+                if (pageConfig[this.pageName].pageView) {
+                    //newViewName = eval(pageConfig[this.pageName].pageView);
+                    newViewName = pageConfig[this.pageName].pageView;
+                    // TODO: dynamic require
+                } else {
+                    newViewName = 'BaseView';
+                }
+
+                return newViewName;
+
+            },
+
+            // ============= CLEANUP ===============
 
             onDestroy: function() {
                 // destroy view

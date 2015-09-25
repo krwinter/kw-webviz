@@ -18,7 +18,7 @@ define([
     ) {
 
 
-    var controller = BaseController.extend({
+    var controller = Marionette.Controller.extend({
 
         modelClass: NavModel,
         viewClass: NavView,

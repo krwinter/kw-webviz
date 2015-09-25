@@ -31,6 +31,12 @@ define([
 
             pageController: "BrewTempController",
 
+            pageModel: "models/BrewTempModel",
+
+            pageView: "views/BrewTempView",
+
+            pageTemplate: "brewTemp.html",
+
             options: { },
 
             filterControls: ['date'],
