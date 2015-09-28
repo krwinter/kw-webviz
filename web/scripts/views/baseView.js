@@ -1,12 +1,14 @@
 define([
     'marionette',
     'utils/events',
-    'config/pageConfig'
+    'config/pageConfig',
+    'text!templates/baseTemplate.html'
 
      ], function(
          Marionette,
          events,
-         pageConfig
+         pageConfig,
+         htmlTemplate
         ) {
 
 
@@ -21,6 +23,8 @@ define([
 
 
     var view = Backbone.Marionette.LayoutView.extend({
+
+        template: htmlTemplate,
 
         templatePath: null,
 
@@ -51,7 +55,8 @@ define([
             this.pageName = options.pageName;
             this.setupListeners();
 
-            this.setTemplate();
+            // TODO - figure out how to dynamically require needed templates
+            //this.setTemplate();
         },
 
         setTemplate: function(options) {

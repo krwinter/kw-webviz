@@ -3,6 +3,7 @@ define([
     'controllers/navController',
     'controllers/downloadController',
     'controllers/brewTempController',
+    'controllers/baseController',
     'views/modalView',
     'views/alertModalView',
     'models/aboutModel',
@@ -19,6 +20,7 @@ define([
             NavController,
             DownloadController, 
             BrewTempController,
+            BaseController,
 
             ModalView,
             AlertView,
@@ -218,7 +220,7 @@ define([
                 var newControllerName;
                 if (pageConfig[this.currentPageName].pageController) {
                     newControllerName = eval(pageConfig[this.currentPageName].pageController);
-                    // TODO: dynamic require
+                    // TODO: make dynamic require
                 } else {
                     newControllerName = 'BaseController';
                 }

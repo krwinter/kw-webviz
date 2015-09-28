@@ -29,9 +29,17 @@ define([
 
             pageTitle: 'Brew Temp',
 
-            pageController: "BrewTempController",
+            pageController: "BaseController",
 
             pageModel: "models/BrewTempModel",
+
+            api: {
+
+                type: 'file',
+
+                file: 'http://localhost:8000/data/brewtemp.csv'
+
+            },
 
             pageView: "views/BrewTempView",
 

@@ -3,14 +3,18 @@ define([
     'd3',
     'utils/events',
     'config/appConfig',
-    'models/filters/filters'
+    'config/pageConfig',
+    'models/filters/filters',
+    'models/services/fileService'
     ],
      function(
          Backbone,
          d3,
          events,
          config,
-         Filters
+         pageConfig,
+         Filters,
+         FileService
     ) {
 
         /*
@@ -30,7 +34,11 @@ define([
 
             dataLoadEvent: null,    // event to listent to when data loaded
 
-            pageDataObj: {},    // set of config options for the page
+            service: null,  //service that loads the data
+
+            pageData: {},    // set of config options for the page
+
+            pageConfig: {},    // core config
 
             enabledFlters: [],        // set of filter names enabled for this model instance
 
@@ -57,22 +65,33 @@ define([
 
             loadData: function() {
 
-                d3.csv(config.baseUrl + this.apiPath)
-                    .get(_.bind(this.handleLoadedData, this));
+
+                // here is how we figure out how to load the date
+                if (this.pageConfig.api.type === 'file') {
+
+                    this.service = new FileService(this.pageConfig);
+                    this.service.load().then(
+                        function(data) {
+                            this.handleLoadedData(data);
+                        }.bind(this),
+                        function(err) {
+                            console.log('err');
+                        }
+                    );
+
+                }
 
             },
 
-            handleLoadedData: function(error, data) {
-                if (!error) {
-                    this.rawData = data;
-                    events.dispatch(this.dataLoadEvent);
-                } else {
-                    console.log('ERROR loading data: ' + error);
-                }
+            handleLoadedData: function(data) {
+                this.rawData = data;
+                events.dispatch(this.dataLoadEvent);
+
             },
 
             setPageData: function(dataObj) {
-                this.pageDataObj = dataObj;
+                this.pageData = dataObj;
+                this.pageConfig = pageConfig[this.pageData.pageName];
             },
 
             setRawData: function(data) {

@@ -15,7 +15,8 @@ require.config({
             nv_utils: "../lib/nv_utils",
             bootstrap: '../lib/bootstrap.min',
             datepicker: '../lib/bootstrap-datepicker.min',   // https://github.com/eternicode/bootstrap-datepicker
-            filesaver: '../lib/FileSaver.min'  // https://github.com/eligrey/FileSaver.js
+            filesaver: '../lib/FileSaver.min',  // https://github.com/eligrey/FileSaver.js
+            q: '../lib/q'
         },
         // paths: {
         //     lib: "../lib",
