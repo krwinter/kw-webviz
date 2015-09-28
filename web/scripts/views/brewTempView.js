@@ -31,7 +31,7 @@ define([
 
         chartSelector: '#chart svg',
 
-        template: templateHtml,
+        //template: templateHtml,
 
         createDataViz: function() {
 

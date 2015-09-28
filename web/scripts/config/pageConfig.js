@@ -35,7 +35,7 @@ define([
 
             pageView: "views/BrewTempView",
 
-            pageTemplate: "brewTemp.html",
+            pageTemplate: "templates/brewTemp.html",
 
             options: { },
 

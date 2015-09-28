@@ -1,9 +1,12 @@
 define([
     'marionette',
     'utils/events',
+    'config/pageConfig'
+
      ], function(
          Marionette,
-         events
+         events,
+         pageConfig
         ) {
 
 
@@ -18,6 +21,8 @@ define([
 
 
     var view = Backbone.Marionette.LayoutView.extend({
+
+        templatePath: null,
 
         graphHolderSelector: '#all-events-graph-holder',
 
@@ -43,7 +48,38 @@ define([
         initialize: function(options) {
             this.options = options;     // want to set this here?  or unpack it?
             this.model = options.model;
+            this.pageName = options.pageName;
             this.setupListeners();
+
+            this.setTemplate();
+        },
+
+        setTemplate: function(options) {
+
+            this.templatePath = this.getTemplatePath();
+            
+            require(['text!' + this.templatePath], 
+                function(template) {
+
+                    console.log('hi template');
+                    this.template = template;
+
+                }.bind(this)
+            );
+        },
+
+        getTemplatePath: function() {
+            var newTemplateName;
+            if (pageConfig[this.pageName].pageTemplate) {
+                //newTemplateName = eval(pageConfig[this.pageName].pageTemplate);
+                newTemplateName = pageConfig[this.pageName].pageTemplate;
+                // TODO: dynamic require
+            } else {
+                newTemplateName = 'templates/BaseTemplate.html';
+            }
+
+            return newTemplateName;
+
         },
 
         // TODO - this will always be different - probably?
@@ -51,6 +87,7 @@ define([
 
         onShow: function() {
             //$('.page-title').text(this.pageTitle);
+            console.log('view.onShow');
         },
 
         onBeforeDestroy: function() {

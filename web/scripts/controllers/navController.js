@@ -20,13 +20,25 @@ define([
 
     var controller = Marionette.Controller.extend({
 
+        pageName: null,         // from page model - is key from each page config object
+
         modelClass: NavModel,
         viewClass: NavView,
+
+        modelInstance: null,    // set here on initialize
+        viewInstance: null,     // set here on initialize
 
         //nav modelInstance in base class
 
         // page model of current content page
         pageModelInstance: null,
+
+        initialize: function(options) {
+
+            this.createModel(options);
+            this.createView(options);
+
+        },
 
 
         // model of main nav layout - dependent on permissions of user, environment, etc
