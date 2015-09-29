@@ -21,6 +21,19 @@ define([],
 
             },
 
+            timestampFromDate: function(dateString) {
+                var dateObj = new Date(dateString);
+                return Math.floor(dateObj.getTime() / 1000);
+            },
+
+            slashDateFromTimestamp: function(timestamp) {
+
+                var dateSrc = String(timestamp).length === 10 ? timestamp * 1000 : timestamp
+                var dateObj = new Date(dateSrc);
+                return (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + '/' + dateObj.getFullYear();
+
+            },
+
             dateIdToUnixTime: function(inputDate) {
 
                 var dateString,

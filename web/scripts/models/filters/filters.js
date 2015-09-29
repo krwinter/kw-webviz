@@ -33,7 +33,6 @@ define([
 
             initialize: function() {
                 console.log('****** init filters ******');
-                events.listen('dateFilterChange', this.date.update, this.date);
                 events.listen('dateFilterChange', this.timestamp.update, this.timestamp);
 
                 // in  case we want to do amythign on page change
@@ -51,7 +50,7 @@ define([
 
             onNewPage: function() {
                 // set filters to defaults, for one
-                this.timestamp.update([Date.now() - 10000000, Date.now()]);
+                this.timestamp.onPageChange();
             },
 
             setFiltersFromQs: function() {
@@ -85,66 +84,25 @@ define([
                 }
             },
 
-            date: {
-
-                getQs: function(param) {
-                    if (param == 'start') {
-                        return 'startDate=' + this.filterMin;
-                    } else {
-                        return 'endDate=' + this.filterMax;
-                    }
-                },
-
-                // we can get an array, a start date, or an end date
-                set: function(dateId, param) {
-
-                    var start,
-                        end;
-
-                    if (_.isArray(dateId)) {
-                        if (dateId[1] > dateId[0]) {
-                            start = dateId[0];
-                            end = dateId[1];
-                        } else {
-                            start = dateId[1];
-                            end = dateId[0]; 
-                        }
-                        this.filterMin = start;
-                        this.filterMax = end;
-                    } else if (param == 'start') {
-                        this.filterMin = dateId;
-                    } else if (param == 'end') {
-                        this.filterMax = dateId;
-                    }
-                
-                },
-
-                update: function(dateArr) {
-                    var dateIdArray = dateArr.map(format.dateIdFromSlashDate);
-                    this.set(dateIdArray);
-                    events.dispatch('filtersUpdated');
-                },
-
-                filterKey: 'date_id',
-
-                filterMin: 20130801,
-
-                filterMax: 20160101,
-
-                test: function(obj) {
-
-                    //return true;
-
-                    if (obj[this.filterKey] >= this.filterMin && obj[this.filterKey] <= this.filterMax) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                }
-            },
-
+            // date time is in utc timestamp
             timestamp: {
 
+                onPageChange: function() {
+
+                    // here just set defaults if not set yet
+                    if (!this.filterMin) {
+                        this.filterMin = Math.floor(Date.now() / 1000) - 7776000; // 3 months before
+                    }
+
+                    if (!this.filterMax) {
+                        this.filterMax = Math.floor(Date.now() / 1000);
+                    }
+
+                    var eventObj = { startDate: this.filterMin, endDate: this.filterMax};
+                    events.dispatch('filterValuesSet', eventObj);
+
+                },
+
                 getQs: function(param) {
                     if (param == 'start') {
                         return 'startDate=' + this.filterMin;
@@ -154,40 +112,40 @@ define([
                 },
 
                 // we can get an array, a start date, or an end date
-                set: function(dateId, param) {
+                set: function(dateValue, param) {
 
                     var start,
                         end;
 
-                    if (_.isArray(dateId)) {
-                        if (dateId[1] > dateId[0]) {
-                            start = dateId[0];
-                            end = dateId[1];
+                    if (_.isArray(dateValue)) {
+                        if (dateValue[1] > dateValue[0]) {
+                            start = dateValue[0];
+                            end = dateValue[1];
                         } else {
-                            start = dateId[1];
-                            end = dateId[0]; 
+                            start = dateValue[1];
+                            end = dateValue[0]; 
                         }
                         this.filterMin = start;
                         this.filterMax = end;
                     } else if (param == 'start') {
-                        this.filterMin = dateId;
+                        this.filterMin = dateValue;
                     } else if (param == 'end') {
-                        this.filterMax = dateId;
+                        this.filterMax = dateValue;
                     }
                 
                 },
 
                 update: function(dateArr) {
-                    var dateIdArray = dateArr.map(format.dateIdFromSlashDate).map(format.dateIdToUnixTime);
+                    var dateIdArray = dateArr.map(format.timestampFromDate);
                     this.set(dateIdArray);
                     events.dispatch('filtersUpdated');
                 },
 
                 filterKey: 'timestamp',
 
-                filterMin: 1436918400,
+                filterMin: null,
 
-                filterMax: Math.floor(Date.now() / 1000),
+                filterMax: null,
 
                 test: function(obj) {
 

@@ -24,7 +24,7 @@ define([
             // after main content view is ready, we know we everything is in place so we can update nav
             events.listen('viewReady', this.updateView);
             events.listen('filtersLoaded', this.updateFilterVisibility);
-            events.listen('filterValuesSet', this.updateFilterValues, this);
+            events.listen('filterValuesSet', this.updateFilterFieldValues, this);
         },
 
         initialize: function(options) {
@@ -85,11 +85,12 @@ define([
         },
 
         // when filter values passed in querystring, update filter values
-        updateFilterValues: function(valueObj) {
+        // set field values to match what is in filters
+        updateFilterFieldValues: function(valueObj) {
             var value;
             for (var key in valueObj) {
                 if (key.indexOf('date') > -1 || key.indexOf('Date') > -1) {
-                    value = format.dateIdToSlashDate(valueObj[key]);
+                    value = format.slashDateFromTimestamp(valueObj[key]);
                 } else {
                     value = valueObj[key];
                 }
